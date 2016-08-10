@@ -17,6 +17,11 @@ body {
   margin: 0 auto;
 }
 
+.question-summary {
+  padding: ;
+}
 
-
+.inline {
+  display: inline-block;
+}
 

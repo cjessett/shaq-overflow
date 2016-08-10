@@ -1,4 +1,4 @@
-<div class="container">
+
   <h1>Welcome to Shaq Overflow!</h1>
   <p>Hello, world!</p>
 
@@ -6,13 +6,26 @@
   <% if @questions %>
       <% @questions.each do |question| %>
 
-       <article id="<%= question.id %>">
-<!--         <div class="inline"><%= question.points %></div>
-        <h2><a href='/questions/<%= question.id %>'><%= question.title %></a></h2>
-        <p>
-          <span class='username'><%= question.username %></span>
-          <a class="delete" href='/questions/<%= question.id %>'></a>
-        </p> -->
+       <article id="<%= question.id %>" class="question-summary">
+        <div class="question-info inline">
+          <div class="votes inline">
+            <div class="vote-count">
+              <%= question.points %>
+            </div>
+            <div>votes</div>
+          </div>
+
+          <div class="answers inline">
+            <div class="answer-count">
+              <%= question.answers.count %>
+            </div>
+            <div>answers</div>
+          </div>
+        </div>
+
+        <div class="summary inline">
+          <h3><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
+        </div>
        </article>
 
       <% end %>
