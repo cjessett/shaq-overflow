@@ -1,19 +1,10 @@
-get '/' do
-  redirect '/questions'
-end
-
 get '/questions' do
   @questions = Question.all
   erb :index
 end
 
-get "/questions/new" do
- erb :'questions/new'
-end
-
-post '/questions/new' do
-  Question.create!(title: params[:title], content: params[:question], user_id: session[:user_id])
-  redirect to '/questions'
+post '/questions' do
+  # handle new questions from homepage
 end
 
 get '/questions/:id' do
@@ -34,5 +25,10 @@ post '/questions/:question_id/answers' do
   redirect "/questions/#{q_id}"
 end
 
+get "/questions/:id/votes/up" do
+  # add upvote
+end
 
-
+get "/questions/:id/votes/down" do
+  # add downvote
+end
