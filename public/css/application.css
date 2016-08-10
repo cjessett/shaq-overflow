@@ -4,10 +4,6 @@
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
 }
-th {
-  text-align: left;
-}
-
 
 body {
   counter-reset:section;
@@ -17,11 +13,34 @@ body {
   margin: 0 auto;
 }
 
+nav li {
+  display: inline;
+}
+
 .question-summary {
-  padding: ;
+  padding: 10px 0 10px 0;
+  border-bottom: solid 1px;
+}
+
+.question-info {
+  padding: 20px;
 }
 
 .inline {
   display: inline-block;
 }
 
+.count {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.stats {
+  margin: 5px;
+  padding: 10px;
+}
+
+.mini-text {
+  font-size: 75%;
+}

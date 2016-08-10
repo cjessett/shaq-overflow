@@ -1,6 +1,5 @@
 
   <h1>Welcome to Shaq Overflow!</h1>
-  <p>Hello, world!</p>
 
 
   <% if @questions %>
@@ -8,18 +7,13 @@
 
        <article id="<%= question.id %>" class="question-summary">
         <div class="question-info inline">
-          <div class="votes inline">
-            <div class="vote-count">
-              <%= question.points %>
-            </div>
-            <div>votes</div>
+          <div class="stats inline">
+            <div class="count"><%= question.points %></div>
+            <div class="mini-text">votes</div>
           </div>
-
-          <div class="answers inline">
-            <div class="answer-count">
-              <%= question.answers.count %>
-            </div>
-            <div>answers</div>
+          <div class="stats inline">
+            <div class="count"><%= question.answers.count %></div>
+            <div class="mini-text">answers</div>
           </div>
         </div>
 
