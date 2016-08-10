@@ -2,18 +2,19 @@
   <h1>Welcome to Shaq Overflow!</h1>
   <p>Hello, world!</p>
 
-<div class='question-container'>
+
   <% if @questions %>
       <% @questions.each do |question| %>
 
        <article id="<%= question.id %>">
-         <form method="post" action='/questions/<%= question.id %>/vote' class="inline">
-           <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
-         </form>
+<!--         <div class="inline"><%= question.points %></div>
+        <h2><a href='/questions/<%= question.id %>'><%= question.title %></a></h2>
+        <p>
+          <span class='username'><%= question.username %></span>
+          <a class="delete" href='/questions/<%= question.id %>'></a>
+        </p> -->
        </article>
 
       <% end %>
   <% end %>
-</div>
-
 </div>
