@@ -13,6 +13,7 @@ get '/users/:id' do
   @questions = @user.questions
   @answers = @user.answers
   erb :'/users/home'
+end
 
 post '/questions' do
   # handle new questions from homepage
