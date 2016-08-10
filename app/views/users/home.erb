@@ -1,0 +1,40 @@
+
+
+  <% if @questions %>
+      <% @questions.each do |question| %>
+
+
+       <article id="<%= question.id %>" class="question-summary">
+        <div class="question-info inline">
+          <div class="stats inline">
+            <div class="count"><%= question.points %></div>
+            <div class="mini-text">votes</div>
+          </div>
+          <div class="stats inline">
+            <div class="count"><%= question.answers.count %></div>
+            <div class="mini-text">answers</div>
+          </div>
+        </div>
+
+        <div class="summary inline">
+          <h3><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
+        </div>
+       </article>
+      <% end %>
+  <% else %>
+      <h2>You have not asked any questions yet...</h2>
+  <% end %>
+
+<% if @answers %>
+      <% @answers.each do |answer| %>
+
+        <article id="<%= answer.id %>" class="question-summary">
+        <div class="question-info inline">
+
+                <div class="summary inline">
+          <h3><a href="/questions/<%= answer.question.id %>"><%= answer.question.title %></a></h3>
+          <p><%= answer.content %></p>
+        </div>
+        </div>
+      <% end %>
+<% end %>
