@@ -1,6 +1,21 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
+  <h1>Welcome to Shaq Overflow!</h1>
   <p>Hello, world!</p>
 
+
+  <% if @questions %>
+      <% @questions.each do |question| %>
+
+       <article id="<%= question.id %>">
+<!--         <div class="inline"><%= question.points %></div>
+        <h2><a href='/questions/<%= question.id %>'><%= question.title %></a></h2>
+        <p>
+          <span class='username'><%= question.username %></span>
+          <a class="delete" href='/questions/<%= question.id %>'></a>
+        </p> -->
+       </article>
+
+      <% end %>
+  <% end %>
 
 </div>
