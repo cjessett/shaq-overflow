@@ -7,3 +7,21 @@
 th {
   text-align: left;
 }
+
+
+body {
+  counter-reset:section;
+  background-color: #F6F6EF;
+  font-family: Verdana;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.question-summary {
+  padding: ;
+}
+
+.inline {
+  display: inline-block;
+}
+
