@@ -14,4 +14,4 @@
 - Users should be able to vote on Shaq-questions, Shaq-answers, and responses (both upvotes and downvotes) - only once.
 
 - Users cannot add a Shaq-question, answer, or vote unless they're logged in, but they can view all of the above when logged out.
->>>>>>> cb1e1b9efc68f7872b3e1991c94507e168a88603
+
