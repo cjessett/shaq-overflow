@@ -1,7 +1,7 @@
 .container {
   margin: 20px auto;
   width: 600px;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   border: 1px dotted black;
 }
 
@@ -29,6 +29,10 @@ nav li {
 .right-nav {
 
   display: inline-block;
+}
+
+#new-question {
+  float: right;
 }
 
 .question-summary {
