@@ -1,8 +1,5 @@
 
-  <h1>Welcome to Shaq Overflow!</h1>
-
-
-  <% if @questions %>
+<% if @questions %>
       <% @questions.each do |question| %>
 
        <article id="<%= question.id %>" class="question-summary">
@@ -25,5 +22,4 @@
       <% end %>
   <% end %>
 
-</div>
 
