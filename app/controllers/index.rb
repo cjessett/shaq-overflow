@@ -7,6 +7,14 @@ get '/questions' do
   erb :index
 end
 
+get "/questions/new" do
+ erb :'questions/new'
+end
+
+post '/questions/new' do
+  Question.create!(title: params[:title], content: params[:question], user_id: session[:user_id])
+  redirect to '/questions'
+end
 
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
