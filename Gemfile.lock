@@ -70,11 +70,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.1)
   activesupport (~> 4.1)
-<<<<<<< HEAD
-  bcrypt
-=======
   bcrypt-ruby
->>>>>>> origin/cjessett
   faker
   pg
   rake
@@ -84,11 +80,5 @@ DEPENDENCIES
   sinatra-contrib
   thin
 
-<<<<<<< HEAD
-RUBY VERSION
-   ruby 2.0.0p648
-
-=======
->>>>>>> origin/cjessett
 BUNDLED WITH
    1.12.5
