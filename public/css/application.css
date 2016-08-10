@@ -58,3 +58,19 @@ nav li {
 .mini-text {
   font-size: 75%;
 }
+
+.vote-cell {
+  width: 10%;
+  display: inline-block;
+}
+
+.vote-cell a span {
+  display: block;
+  margin: 0;
+}
+
+.post-content {
+  display: inline-block;
+}
+
+
