@@ -1,0 +1,14 @@
+  <header>
+      <nav>
+        <ul>
+          <li><a href="/">home</a></li>
+          <% if session[:user_id]%>
+            <li><a href="/users/<%= session[:user_id] %>">profile</a></li>
+            <li><a href="/logout">logout</a></li>
+          <% else %>
+            <li><a href="/register">sign up</a></li>
+            <li><a href="/login">log in</a></li>
+          <% end %>
+        </ul>
+      </nav>
+  </header>
