@@ -5,6 +5,7 @@
   border: 1px dotted black;
 }
 
+
 body {
   counter-reset:section;
   background-color: #eee0ef;
@@ -25,13 +26,12 @@ a {
 }
 
 .left-nav {
-
   display: inline-block;
 
 }
 
 .right-nav {
-
+  float:right;
   display: inline-block;
 }
 
