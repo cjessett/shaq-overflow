@@ -3,11 +3,10 @@ get '/register' do
 end
 
 post '/register' do
-  user = User.create(username: params[:username], password: params[:password])
-    if user.save
-      session[:user_id] = user.id
-      redirect '/login'
-    else
-      redirect '/register'
-    end
+  user = User.new(params[:user])
+  if user.save
+    redirect '/login'
+  else
+    redirect '/register'
+  end
 end
