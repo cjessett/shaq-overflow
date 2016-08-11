@@ -21,16 +21,12 @@
 
 
   <% if @answers %>
-
     <% if @answers.find_by(favorite: true) %>
-    <%= @question.answers.find_by(favorite: true) %>
+    <%= @question.answers.find_by(favorite: true).content %>
     <% end %>
 
 
     <% @answers.each do |answer| %>
-
-
-
 
 <!--  create favorite buttons if the user that created that question is the current user.  -->
     <% if session[:user_id] %>
