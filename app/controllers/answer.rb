@@ -1,5 +1,5 @@
 # vote handling
-get "/answer/:id/votes/up" do
+get "/answers/:id/votes/up" do
   answer = Answer.find_by_id params[:id]
   if current_user
     val = 1
@@ -16,7 +16,7 @@ get "/answer/:id/votes/up" do
   end
 end
 
-get "/answer/:id/votes/down" do
+get "/answers/:id/votes/down" do
   answer = Answer.find_by_id params[:id]
   if current_user
     val = -1
