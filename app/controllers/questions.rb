@@ -38,9 +38,16 @@ end
 
 # vote handling
 get "/questions/:id/votes/up" do
-  q = Question.find_by_id params[:id]
+  question = Question.find_by_id params[:id]
   if current_user
-    Vote.create(value: 1, votable: q, user: current_user)
+    val = 1
+    vote = question.votes.find_by(user: current_user)
+    if vote
+      vote.value == val ? vote.value = 0 : vote.value = val
+      vote.save
+    else
+      Vote.create(value: val, user: current_user, votable: question)
+    end
     redirect request.referrer
   else
     redirect '/login'
@@ -48,27 +55,21 @@ get "/questions/:id/votes/up" do
 end
 
 get "/questions/:id/votes/down" do
+  question = Question.find_by_id params[:id]
   if current_user
-      Vote.create(value: -1, votable: Question.find(params[:id]), user: current_user)
-      redirect request.referrer
+    val = -1
+    vote = question.votes.find_by(user: current_user)
+    if vote
+      vote.value == val ? vote.value = 0 : vote.value = val
+      vote.save
+    else
+      Vote.create(value: val, user: current_user, votable: question)
+    end
+    redirect request.referrer
   else
     redirect '/login'
   end
 end
-
-
-# Vote handler pseudo
-
-# Find question --> q
-# get val ( val from view)
-
-# vote = q.votes.find_by(user: current_user)
-# if vote
-  # vote.value == val ? vote.value = 0 : vote.value = val
-# else
-  # create new vote with value: val
-# end
-
 
 
 

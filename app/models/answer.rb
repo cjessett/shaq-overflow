@@ -8,4 +8,7 @@ class Answer < ActiveRecord::Base
     user.username
   end
 
+  def points
+    votes.sum(:value)
+  end
 end
