@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<div class="shaq">
-<img src='/images/shaq.jpg' alt="KaZaam" class="shaq">
-<div class="bottom">ASK A QUESTION</div>
-</div>
   <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -24,9 +20,16 @@
 </head>
 <body>
 
+  <div class="shaq">
+    <img src='/images/shaq.jpg' alt="KaZaam" class="shaq">
+    <div class="bottom">ASK A QUESTION</div>
+  </div>
+
   <%= erb :_nav  %>
+
   <div class="container">
     <%= yield %>
   </div>
+
 </body>
 </html>
