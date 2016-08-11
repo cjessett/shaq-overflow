@@ -16,7 +16,7 @@ get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
   @answers = @question.answers
 
-  erb :question
+  erb :'/questions/show'
 end
 
 post '/questions/:question_id/answers' do
