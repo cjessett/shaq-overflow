@@ -3,7 +3,7 @@ Question.destroy_all
 Answer.destroy_all
 
 
-User.create(username: 'cj', password: 'test')
+cj = User.create(username: 'cj', password: 'test')
 User.create(username: 'Sarah')
 User.create(username: 'Sean')
 
@@ -24,11 +24,10 @@ Answer.create(question_id: 6, user_id: 3, content: "Beginning in 1993 O'Neal beg
 Answer.create(question_id: 1, user_id: 1, content: "@Sarah, sorry, I got the math wrong...")
 Answer.create(question_id: 1, user_id: 3, content: "@CJ and @sarah... althat matters is that we all love Shaq...")
 
-cj = User.create(username: 'cj', password: 'test')
 q = Question.create(title: 'how old is shaq?', content: 'how old is he?', user: cj)
 
 19.times {
-  vote = vote.new(value: 1)
+  vote = Vote.new(value: 1)
   vote.update(votable: q)
 }
 
