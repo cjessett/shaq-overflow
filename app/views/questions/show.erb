@@ -3,7 +3,8 @@
 <div class="question-cell">
   <div class="vote-cell">
 
-    <%= user_vote_status(@question) %>
+    <%= question_vote_status(@question) %>
+
 
   </div>
 
@@ -17,43 +18,15 @@
   <h3><%= @answers.count %> Answers</h3>
 </div>
 
-<div class="answers">
 
-
-  <% if @answers %>
-    <% if @answers.find_by(favorite: true) %>
-    <%= @question.answers.find_by(favorite: true).content %>
-    <% end %>
-
-
-    <% @answers.each do |answer| %>
-
-<!--  create favorite buttons if the user that created that question is the current user.  -->
-    <% if session[:user_id] %>
+  <% if session[:user_id] %>
     <% if session[:user_id] == answer.question.user.id %>
     <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Favorite</a>
     <% end %>
   <% end %>
 
-
-      <div class="answer-cell">
-        <div class="vote-cell">
-          <a class="fa fa-thumbs-up" href="/answers/<%= answer.id %>/votes/up"></a>
-          <span class="vote-count"><%= answer.votes.count %></span>
-          <a class="fa fa-thumbs-down" href="/answers/<%= answer.id %>/votes/down"></a>
-        </div>
-
-        <div class="post-content">
-          <%= answer.content %>
-        </div>
-
-        <div class="author">
-          <%= answer.author  %>
-        </div>
-      </div>
-
-    <% end %>
-  <% end %>
+<div class="answers">
+  <%= erb :"answers/_show"  %>
 </div>
 
 

@@ -8,7 +8,7 @@ post '/login' do
     session[:user_id] = user.id
     redirect "/"
   else
-    erb :login
+    erb :'users/error'
   end
 end
 
@@ -16,3 +16,6 @@ get '/logout' do
   session.delete(:user_id)
   redirect '/'
 end
+
+
+
