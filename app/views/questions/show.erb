@@ -1,0 +1,54 @@
+<h2 class="question-title"><%= @question.title %></h2>
+
+<div class="question-cell">
+  <div class="vote-cell">
+    <a class="fa fa-thumbs-up" href="/questions/<%= @question.id %>/votes/up"></a>
+    <span class="vote-count"><%= @question.votes.count %></span>
+    <a class="fa fa-thumbs-down" href="/questions/<%= @question.id %>/votes/down"></a>
+  </div>
+
+  <div class="post-content">
+    <%= @question.content %>
+  </div>
+
+</div>
+
+<div class="answer-count">
+  <h3><%= @answers.count %> Answers</h3>
+</div>
+
+<div class="answers">
+  <% if @answers %>
+    <% @answers.each do |answer| %>
+
+      <div class="answer-cell">
+        <div class="vote-cell">
+          <a class="fa fa-thumbs-up" href="/answers/<%= answer.id %>/votes/up"></a>
+          <span class="vote-count"><%= answer.votes.count %></span>
+          <a class="fa fa-thumbs-down" href="/answers/<%= answer.id %>/votes/down"></a>
+        </div>
+
+        <div class="post-content">
+          <%= answer.content %>
+        </div>
+
+        <div class="author">
+          <%= answer.author  %>
+        </div>
+      </div>
+
+    <% end %>
+  <% end %>
+</div>
+
+
+
+<div class="new-answer">
+  <form action ="/questions/<%= @question.id%>/answers" method="post" id="answer-form">
+    <textarea rows="4" cols="50" name="answer" form="answer-form"></textarea>
+    <input type="submit" value="Post Your Answer" class="">
+  </form>
+</div>
+
+
+
