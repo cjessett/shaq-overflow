@@ -15,22 +15,6 @@ helpers do
     end
   end
 
-  # def question_vote_status(question)
-  #   if current_user
-  #     val = current_user.votes.find_or_initialize_by(votable: question).value
-  #     case val
-  #     when 1
-  #       erb :'questions/_up'
-  #     when -1
-  #       erb :'questions/_down'
-  #     else
-  #       erb :'questions/_basic'
-  #     end
-  #   else
-  #     erb :'questions/_no_user'
-  #   end
-  # end
-
   def answer_vote_status(answer)
     @answer = answer
     if current_user
