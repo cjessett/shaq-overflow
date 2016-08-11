@@ -23,6 +23,7 @@ nav li {
 
 a {
   text-decoration: none;
+  outline: none;
 }
 
 .left-nav {
@@ -115,11 +116,6 @@ a {
   border-bottom: 1px solid;
 }
 
-/*.question-cell {
-  margin: 20px auto;
-  padding: 20px;
-}*/
-
 .answers {
   margin: 20px auto;
   padding: 20px;
@@ -143,6 +139,10 @@ a.fa:hover {
 
 a.active {
   color: orange;
+}
+
+a:focus {
+  outline: none;
 }
 
 .vote-cell {
