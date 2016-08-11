@@ -2,31 +2,27 @@
 
 <div class="question-cell">
   <div class="vote-cell">
-
     <%= question_vote_status(@question) %>
-
-
   </div>
 
   <div class="post-content">
     <%= @question.content %>
   </div>
-
 </div>
 
 <div class="answer-count">
   <h3><%= @answers.count %> Answers</h3>
 </div>
 
+
 <div class="answers">
   <%= erb :"answers/_show"  %>
 </div>
 
 
-
 <div class="new-answer">
   <form action ="/questions/<%= @question.id%>/answers" method="post" id="answer-form">
-    <textarea rows="4" cols="50" name="answer" form="answer-form"></textarea>
+    <textarea rows="4" cols="50" name="answer" form="answer-form" required></textarea>
     <input type="submit" value="Post Your Answer" class="">
   </form>
 </div>

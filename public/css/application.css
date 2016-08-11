@@ -5,6 +5,7 @@
   border: 1px dotted black;
 }
 
+
 body {
   counter-reset:section;
   background-color: #eee0ef;
@@ -22,16 +23,16 @@ nav li {
 
 a {
   text-decoration: none;
+  outline: none;
 }
 
 .left-nav {
-
   display: inline-block;
 
 }
 
 .right-nav {
-
+  float:right;
   display: inline-block;
 }
 
@@ -115,11 +116,6 @@ a {
   border-bottom: 1px solid;
 }
 
-/*.question-cell {
-  margin: 20px auto;
-  padding: 20px;
-}*/
-
 .answers {
   margin: 20px auto;
   padding: 20px;
@@ -145,6 +141,10 @@ a.active {
   color: orange;
 }
 
+a:focus {
+  outline: none;
+}
+
 .vote-cell {
   text-align: center;
   display: inline-block;
@@ -159,6 +159,13 @@ a.active {
 }
 
 .answer-cell {
+  padding: 10px 0 10px 0;
+  margin: 10px 0;
+  border-bottom: solid 1px #8c8c8c;
+}
+
+.favorite-cell {
+  background: #d6c9d7;
   padding: 10px 0 10px 0;
   margin: 10px 0;
   border-bottom: solid 1px #8c8c8c;

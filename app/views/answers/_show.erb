@@ -1,7 +1,21 @@
   <% if @answers %>
     <% @answers.each do |answer| %>
 
+
+
+    <% if current_user %>
+      <% if current_user == answer.question.user %>
+      <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Favorite</a>
+      <% end %>
+    <% end %>
+
+    <% if answer.favorite == true %>
+
+      <div class="favorite-cell">
+      <p><em>The author of this question has rated this as their top answer:</em></p>
+    <% else %>
       <div class="answer-cell">
+    <% end %>
         <div class="vote-cell">
           <%= answer_vote_status(answer) %>
         </div>

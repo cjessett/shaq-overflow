@@ -18,7 +18,7 @@ end
 
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
-  @answers = @question.answers
+  @answers = @question.answers.order(favorite: :desc)
 
   erb :'/questions/show'
 end
@@ -36,8 +36,7 @@ post '/questions/:question_id/answers' do
 end
 
 
-# vote handling
-get "/questions/:id/votes/up" do
+post '/questions/:id/votes/up' do
   question = Question.find_by_id params[:id]
   if current_user
     val = 1
@@ -46,15 +45,17 @@ get "/questions/:id/votes/up" do
       vote.value == val ? vote.value = 0 : vote.value = val
       vote.save
     else
-      Vote.create(value: val, user: current_user, votable: question)
+      vote = Vote.create(value: val, user: current_user, votable: question)
     end
-    redirect request.referrer
+    total = question.points
+    value = vote.value
+    { value: value, total: total }.to_json
   else
-    redirect '/login'
+    erb :login, layout: !request.xhr?
   end
 end
 
-get "/questions/:id/votes/down" do
+post '/questions/:id/votes/down' do
   question = Question.find_by_id params[:id]
   if current_user
     val = -1
@@ -63,13 +64,16 @@ get "/questions/:id/votes/down" do
       vote.value == val ? vote.value = 0 : vote.value = val
       vote.save
     else
-      Vote.create(value: val, user: current_user, votable: question)
+      vote = Vote.create(value: val, user: current_user, votable: question)
     end
-    redirect request.referrer
+    total = question.points
+    value = vote.value
+    { value: value, total: total }.to_json
   else
-    redirect '/login'
+    # tell ajax to get login page
   end
 end
+
 
 
 
