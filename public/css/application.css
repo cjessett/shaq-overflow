@@ -1,6 +1,6 @@
 .container {
   margin: 20px auto;
-  width: 700px;
+  max-width: 720px;
   padding: 20px 20px 20px 20px;
   border: 1px dotted black;
 }
@@ -9,7 +9,7 @@ body {
   counter-reset:section;
   background-color: #F6F6EF;
   font-family: Verdana;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -112,6 +112,10 @@ a.fa {
 }
 
 a.fa:hover {
+  color: orange;
+}
+
+a.active {
   color: orange;
 }
 

@@ -2,9 +2,9 @@
 
 <div class="question-cell">
   <div class="vote-cell">
-    <a class="fa fa-thumbs-up" href="/questions/<%= @question.id %>/votes/up"></a>
-    <span class="vote-count"><%= @question.points %></span>
-    <a class="fa fa-thumbs-down" href="/questions/<%= @question.id %>/votes/down"></a>
+
+    <%= user_vote_status(@question) %>
+
   </div>
 
   <div class="post-content">

@@ -23,6 +23,8 @@ get '/questions/:id' do
   erb :'/questions/show'
 end
 
+
+# submit answer
 post '/questions/:question_id/answers' do
   if !current_user
     redirect '/login'
@@ -33,9 +35,12 @@ post '/questions/:question_id/answers' do
   redirect "/questions/#{q_id}"
 end
 
+
+# vote handling
 get "/questions/:id/votes/up" do
+  q = Question.find_by_id params[:id]
   if current_user
-    Vote.create(value: 1, votable: Question.find(params[:id]), user: current_user)
+    Vote.create(value: 1, votable: q, user: current_user)
     redirect request.referrer
   else
     redirect '/login'
@@ -43,11 +48,28 @@ get "/questions/:id/votes/up" do
 end
 
 get "/questions/:id/votes/down" do
-    if current_user
+  if current_user
       Vote.create(value: -1, votable: Question.find(params[:id]), user: current_user)
       redirect request.referrer
   else
     redirect '/login'
   end
 end
+
+
+# Vote handler pseudo
+
+# Find question --> q
+# get val ( val from view)
+
+# vote = q.votes.find_by(user: current_user)
+# if vote
+  # vote.value == val ? vote.value = 0 : vote.value = val
+# else
+  # create new vote with value: val
+# end
+
+
+
+
 
