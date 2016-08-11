@@ -8,8 +8,12 @@ post '/questions' do
   redirect to '/questions'
 end
 
-get "/questions/new" do
- erb :'questions/new'
+get '/questions/new' do
+  if current_user
+    erb :'questions/new'
+  else
+    redirect '/login'
+  end
 end
 
 get '/questions/:id' do
