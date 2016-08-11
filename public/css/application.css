@@ -184,8 +184,8 @@ a:focus {
 }
 .bottom {
     position: absolute;
-    bottom: 8px;
-    left: 30%;
+    bottom: 25px;
+    left: 38%;
     font-size: 30px;
     color: #f0e6ff;
     font-style: bold;
