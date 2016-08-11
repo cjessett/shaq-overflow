@@ -8,8 +8,12 @@ post '/questions' do
   redirect to '/questions'
 end
 
-get "/questions/new" do
- erb :'questions/new'
+get '/questions/new' do
+  if current_user
+    erb :'questions/new'
+  else
+    redirect '/login'
+  end
 end
 
 get '/questions/:id' do
@@ -20,7 +24,6 @@ get '/questions/:id' do
 end
 
 post '/questions/:question_id/answers' do
-  # raise params.inspect
   if !current_user
     redirect '/login'
   end
@@ -31,10 +34,20 @@ post '/questions/:question_id/answers' do
 end
 
 get "/questions/:id/votes/up" do
-  # add upvote
+  if current_user
+    Vote.create(value: 1, votable: Question.find(params[:id]), user: current_user)
+    redirect request.referrer
+  else
+    redirect '/login'
+  end
 end
 
 get "/questions/:id/votes/down" do
-  # add downvote
+    if current_user
+      Vote.create(value: -1, votable: Question.find(params[:id]), user: current_user)
+      redirect request.referrer
+  else
+    redirect '/login'
+  end
 end
 
