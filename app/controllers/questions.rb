@@ -20,7 +20,6 @@ get '/questions/:id' do
 end
 
 post '/questions/:question_id/answers' do
-  # raise params.inspect
   if !current_user
     redirect '/login'
   end
@@ -33,6 +32,7 @@ end
 get "/questions/:id/votes/up" do
   if current_user
     Vote.create(value: 1, votable: Question.find(params[:id]), user: current_user)
+    redirect request.referrer
   else
     redirect '/login'
   end
@@ -41,6 +41,7 @@ end
 get "/questions/:id/votes/down" do
     if current_user
       Vote.create(value: -1, votable: Question.find(params[:id]), user: current_user)
+      redirect request.referrer
   else
     redirect '/login'
   end
