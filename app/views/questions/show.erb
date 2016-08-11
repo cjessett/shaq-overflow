@@ -19,10 +19,9 @@
 </div>
 
 
-
 <div class="new-answer">
   <form action ="/questions/<%= @question.id%>/answers" method="post" id="answer-form">
-    <textarea rows="4" cols="50" name="answer" form="answer-form"></textarea>
+    <textarea rows="4" cols="50" name="answer" form="answer-form" required></textarea>
     <input type="submit" value="Post Your Answer" class="">
   </form>
 </div>
