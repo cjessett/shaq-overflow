@@ -39,12 +39,14 @@
 
     <% end %>
 
+  <% if current_user %>
     <form id="answer_comment" method="post" action="<%= answer.question_id %>/answer/<%= answer.id %>/comment/new">
 
        <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
 
         <input type="submit" value="Post Comment" class="">
     </form>
+    <% end %>
     </div>
 
 
