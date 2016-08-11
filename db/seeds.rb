@@ -28,7 +28,7 @@ q = Question.create(title: 'how old is shaq?', content: 'how old is he?', user: 
 
 19.times {
   vote = Vote.new(value: 1)
-  vote.update(votable: q)
+  vote.update(votable: q, user: cj)
 }
 
 
