@@ -4,7 +4,12 @@ get '/questions' do
 end
 
 post '/questions' do
-  # handle new questions from homepage
+  Question.create!(title: params[:title], content: params[:question], user_id: session[:user_id])
+  redirect to '/questions'
+end
+
+get "/questions/new" do
+ erb :'questions/new'
 end
 
 get '/questions/:id' do
@@ -32,3 +37,4 @@ end
 get "/questions/:id/votes/down" do
   # add downvote
 end
+
