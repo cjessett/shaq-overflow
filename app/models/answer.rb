@@ -4,4 +4,8 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
 
+  def author
+    user.username
+  end
+
 end
