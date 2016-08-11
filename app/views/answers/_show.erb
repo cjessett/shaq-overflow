@@ -1,0 +1,19 @@
+  <% if @answers %>
+    <% @answers.each do |answer| %>
+
+      <div class="answer-cell">
+        <div class="vote-cell">
+          <%= user_answer_vote_status(answer)  %>
+        </div>
+
+        <div class="post-content">
+          <%= answer.content %>
+        </div>
+
+        <div class="author">
+          <%= answer.author  %>
+        </div>
+      </div>
+
+    <% end %>
+  <% end %>
