@@ -1,9 +1,10 @@
   <% if @answers %>
     <% @answers.each do |answer| %>
 
-    <% if session[:user_id] %>
-      <% if session[:user_id] == answer.question.user.id %>
-        <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Favorite</a>
+
+    <% if current_user %>
+      <% if current_user == answer.question.user %>
+      <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Favorite</a>
       <% end %>
     <% end %>
 
