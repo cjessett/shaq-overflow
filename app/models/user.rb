@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :votes
 
+  validate :username, presence: true
+  validate :username, uniqueness: true
+  validates :password_hash, length: { minimum: 2 }
+
   include BCrypt
 
   def password
