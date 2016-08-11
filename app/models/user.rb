@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
 
   validate :username, presence: true
   validate :username, uniqueness: true
-  validates :password_hash, length: { minimum: 2 }
 
   include BCrypt
 
