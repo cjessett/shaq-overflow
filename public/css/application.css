@@ -31,9 +31,6 @@ nav li {
   display: inline-block;
 }
 
-.summary {
-}
-
 .question-summary {
   padding: 10px 0 10px 0;
   border-bottom: solid 1px;
@@ -133,5 +130,6 @@ a.fa:hover {
   padding-top: 20px;
   border-bottom: solid 1px;
 }
+
 
 
