@@ -135,5 +135,21 @@ a.fa:hover {
   border-bottom: solid 1px;
 }
 
+.shaq {
+    position: relative;
+    border-radius: 20%;
+    margin-left: 20px;
+
+}
+.bottom {
+    position: absolute;
+    bottom: 8px;
+    left: 30%;
+    font-size: 30px;
+    color: #f0e6ff;
+    font-style: bold;
+}
+
+
 
 
