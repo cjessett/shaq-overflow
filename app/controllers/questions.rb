@@ -19,7 +19,6 @@ end
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
   @answers = @question.answers.order(favorite: :desc)
-
   erb :'/questions/show'
 end
 

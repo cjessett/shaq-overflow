@@ -2,7 +2,6 @@
     <% @answers.each do |answer| %>
 
 
-
     <% if current_user %>
       <% if current_user == answer.question.user %>
       <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Favorite</a>
@@ -10,24 +9,47 @@
     <% end %>
 
     <% if answer.favorite == true %>
-
       <div class="favorite-cell">
       <p><em>The author of this question has rated this as their top answer:</em></p>
     <% else %>
       <div class="answer-cell">
     <% end %>
-        <div class="vote-cell">
-          <%= answer_vote_status(answer) %>
-        </div>
 
-        <div class="post-content">
-          <%= answer.content %>
-        </div>
+    <div class="vote-cell">
+      <%= answer_vote_status(answer) %>
+    </div>
 
-        <div class="author">
-          <%= answer.author  %>
-        </div>
+    <div class="post-content">
+      <%= answer.content %>
+    </div>
+
+    <div class="author">
+      <%= answer.author  %>
+    </div>
+
+
+    <% if answer.comments.count > 0 %>
+
+      <% answer.comments.each do |comment| %>
+      <div class="answer_comment">
+        <div id="comment_content"><%= comment.content %></div>
+        <div id="answer_comment_author">Author: <%= comment.user.username.capitalize %> </div>
+        <div id="answer_comment_author">Days ago: <%= ((Time.now - comment.created_at) / 3600).to_i  %> </div>
       </div>
+      <% end %>
+
+    <% end %>
+
+  <% if current_user %>
+    <form id="answer_comment" method="post" action="<%= answer.question_id %>/answer/<%= answer.id %>/comment/new">
+
+       <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
+
+        <input type="submit" value="Post Comment" class="">
+    </form>
+    <% end %>
+    </div>
+
 
     <% end %>
   <% end %>
