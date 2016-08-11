@@ -33,6 +33,8 @@ get "/answers/:id/votes/down" do
   end
 end
 
+
+
 # selects the favorite answer for a user question
 get '/questions/:question_id/answers/:answer_id/favorite' do
   @answer = Answer.find(params[:answer_id])

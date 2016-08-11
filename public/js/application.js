@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  var up = $("div.question-cell > div.vote-cell > a.fa-thumbs-up");
-  var down = $("div.question-cell > div.vote-cell > a.fa-thumbs-down");
+  var up = $("div.question-cell > div.vote-cell > a.fa-thumbs-up.user");
+  var down = $("div.question-cell > div.vote-cell > a.fa-thumbs-down.user");
 
   up.click(function(event) {
     event.preventDefault();
@@ -9,6 +9,7 @@ $(document).ready(function() {
     var posting = $.post(question_url);
 
     posting.done(function(data) {
+
       data = JSON.parse(data);
 
       var buttons = $("div.question-cell > div.vote-cell > a");
