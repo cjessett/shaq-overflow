@@ -4,8 +4,8 @@ Answer.destroy_all
 
 
 cj = User.create(username: 'cj', password: 'test')
-User.create(username: 'Sarah')
-User.create(username: 'Sean')
+User.create(username: 'Sarah') #Don't use this account because no password assigned
+User.create(username: 'Sean') #Don't use this account because no password assigned
 
 Question.create(title: 'how old is shaq?', content: 'how old is he?', user_id: 1)
 Question.create(title: 'Where was Shaq born?', content: "I can't find a straight answer, where exactly was Shaq born?", user_id: 2)
