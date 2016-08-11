@@ -15,7 +15,7 @@ helpers do
         erb :'questions/_basic'
       end
     else
-        erb :'questions/_basic'
+        erb :'questions/_no_user'
     end
   end
 
@@ -32,7 +32,7 @@ helpers do
         erb :'answers/_basic'
       end
     else
-        erb :'answers/_basic'
+        erb :'answers/_no_user'
     end
   end
 end
