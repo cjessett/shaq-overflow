@@ -19,12 +19,6 @@
 </div>
 
 
-  <% if session[:user_id] %>
-    <% if session[:user_id] == answer.question.user.id %>
-    <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Favorite</a>
-    <% end %>
-  <% end %>
-
 <div class="answers">
   <%= erb :"answers/_show"  %>
 </div>
