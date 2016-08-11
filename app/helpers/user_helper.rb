@@ -11,7 +11,7 @@ helpers do
         erb :'questions/_up'
       when -1
         erb :'questions/_down'
-      when 0
+      else
         erb :'questions/_basic'
       end
     else
