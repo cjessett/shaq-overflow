@@ -4,7 +4,8 @@ get '/questions' do
 end
 
 post '/questions' do
-  Question.create!(title: params[:title], content: params[:question], user_id: session[:user_id])
+  params['question']['user'] = current_user
+  Question.create(params[:question])
   redirect to '/questions'
 end
 
@@ -18,7 +19,7 @@ end
 
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
-  @answers = @question.answers.order(favorite: :desc, points: :desc)
+  @answers = @question.answers.order(favorite: :desc)
   erb :'/questions/show'
 end
 
