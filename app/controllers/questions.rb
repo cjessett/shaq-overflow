@@ -36,6 +36,7 @@ post '/questions/:question_id/answers' do
 end
 
 
+# vote routes for ajax
 post '/questions/:id/votes/up' do
   question = Question.find_by_id params[:id]
   if current_user

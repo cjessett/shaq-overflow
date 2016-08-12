@@ -1,5 +1,6 @@
 $(document).ready(function() {
-// VOTING
+
+  // VOTING
   var up = $("div.question-cell > div.vote-cell > a.fa-thumbs-up.user");
   var down = $("div.question-cell > div.vote-cell > a.fa-thumbs-down.user");
 
@@ -49,7 +50,9 @@ $(document).ready(function() {
     }
   }
 
-// BEGIN QUESTION COMMENT FIELD
+// ===============================================
+
+  // QUESTION COMMENT SCRIPT
   $("form#question_comment").submit(function(event) {
     event.preventDefault();
 
@@ -64,7 +67,7 @@ $(document).ready(function() {
     });
   });
 
-// BEGIN ANSWER COMMENT FIELD
+  // ANSWER COMMENT SCRIPT
 
 
 });
