@@ -1,54 +1,60 @@
 <h2 class="question-title"><%= @question.title %></h2>
 
 <div class="question-cell">
+
+<!-- highlight users' vote on page load -->
   <div class="vote-cell">
-    <%= question_vote_status(@question) %>
+    <% if current_user %>
+      <%= erb :'questions/_buttons' %>
+    <% else %>
+      <% erb :'questions/_no_user' %>
+    <% end %>
   </div>
 
+<!-- question content -->
   <div class="post-content">
     <%= @question.content %>
   </div>
 
   <% if @question.comments %>
     <div id="all_question_comments">
-
-    <% @question.comments.each do |comment| %>
-    <div class="question_comment">
-      <div id="comment_content"><%= comment.content %></div>
-      <div id="question_comment_author">Author: <%= comment.user.username.capitalize %> </div>
-      <div id="question_comment_author">Days ago: <%= ((Time.now - comment.created_at) / 3600).to_i  %> </div>
-    </div>
-    <% end %>
-
+      <% @question.comments.each do |comment| %>
+      <div class="question_comment">
+        <div id="comment_content"><%= comment.content %></div>
+        <div id="question_comment_author">Author: <%= comment.user.username.capitalize %> </div>
+        <div id="question_comment_author">Days ago: <%= ((Time.now - comment.created_at) / 3600).to_i  %> </div>
+      </div>
+      <% end %>
     </div>
   <% end %>
 
   <% if current_user  %>
-
     <form id="question_comment" method="post" action="/questions/<%= @question.id %>/comment/new">
       <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
       <input type="submit" value="Post Comment"/>
     </form>
-
  <% end %>
 
 
 </div>
 
+
+<!-- answers -->
 <div class="answer-count">
   <h3><%= @answers.count %> Answers</h3>
 </div>
-
 
 <div class="answers">
   <%= erb :"answers/_show"  %>
 </div>
 
 
+<!-- new answer form -->
 <div class="new-answer">
+<h3>Submit a new answer</h3>
   <form action ="/questions/<%= @question.id%>/answers" method="post" id="answer-form">
     <textarea rows="4" cols="50" name="answer" form="answer-form" required></textarea>
-    <input type="submit" value="Post Your Answer" class="">
+    <input type="submit" value="Post" class="comment_submit_button">
   </form>
 </div>
 
