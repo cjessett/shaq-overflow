@@ -49,8 +49,6 @@ post '/questions/:id/votes/up' do
     total = question.points
     value = vote.value
     { value: value, total: total }.to_json
-  else
-    erb :login, layout: !request.xhr?
   end
 end
 
@@ -68,8 +66,6 @@ post '/questions/:id/votes/down' do
     total = question.points
     value = vote.value
     { value: value, total: total }.to_json
-  else
-    # tell ajax to get login page
   end
 end
 
