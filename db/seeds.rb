@@ -3,7 +3,7 @@ Question.destroy_all
 Answer.destroy_all
 
 
-cj = User.create(username: 'cj', password: 'test')
+User.create(username: 'cj', password: 'test')
 
 User.create(username: 'Sarah', password: 'test')
 User.create(username: 'Sean', password: 'test')
@@ -26,7 +26,7 @@ Answer.create(question_id: 6, user_id: 3, content: "Beginning in 1993 O'Neal beg
 Answer.create(question_id: 1, user_id: 1, content: "@Sarah, sorry, I got the math wrong...")
 Answer.create(question_id: 1, user_id: 3, content: "@CJ and @sarah... althat matters is that we all love Shaq...")
 
-Question.create(title: 'how old is shaq?', content: 'how old is he?', user: cj)
+
 
 
 
