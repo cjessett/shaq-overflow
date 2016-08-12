@@ -1,0 +1,5 @@
+<a id="up" val="1" class="fa fa-thumbs-up a-vote <%= up_active?(answer) %>" href="/answers/<%= answer.id %>/votes/up"></a>
+
+<span class="vote-count"><%= answer.points %></span>
+
+<a id="down" val="-1" class="fa fa-thumbs-down a-vote <%= down_active?(answer) %>" href="/answers/<%= answer.id %>/votes/down"></a>
