@@ -17,7 +17,11 @@
 
     <!-- answer voting buttons -->
     <div class="vote-cell">
-      <%= answer_vote_status(answer) %>
+    <% if current_user %>
+      <%= erb :'answers/_buttons', :locals => { answer: answer } %>
+    <% else %>
+      <%= erb :'answers/_no_user' %>
+    <% end %>
     </div>
 
     <!-- answer content -->
