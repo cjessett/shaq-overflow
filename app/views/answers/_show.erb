@@ -1,13 +1,13 @@
   <% if @answers %>
     <% @answers.each do |answer| %>
 
-
-    <% if current_user %>
-      <% if current_user == answer.question.user %>
+    <!-- favorite answer link -->
+    <% if current_user == @question.user  %>
       <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Mark as my Favorite</a>
-      <% end %>
     <% end %>
 
+
+    <!-- favorite answer -->
     <% if answer.favorite == true %>
       <div class="favorite-cell">
       <p><em>The author of this question has rated this as their top answer:</em></p>
@@ -15,39 +15,40 @@
       <div class="answer-cell">
     <% end %>
 
+    <!-- answer voting buttons -->
     <div class="vote-cell">
       <%= answer_vote_status(answer) %>
     </div>
 
+    <!-- answer content -->
     <div class="post-content">
       <%= answer.content %>
     </div>
 
+    <!-- answer author -->
     <div class="author">
       <%= answer.author  %>
     </div>
 
-
-    <% if answer.comments.count > 0 %>
-
+    <!-- answer's comments -->
+    <% if answer.comments.count %>
       <% answer.comments.each do |comment| %>
+      <!-- answer comment data -->
       <div class="answer_comment">
         <div id="comment_content"><%= comment.content %></div>
         <div id="answer_comment_author">Author: <%= comment.user.username.capitalize %> </div>
         <div id="answer_comment_author">Hours ago: <%= ((Time.now - comment.created_at) / 60/60).to_i  %> </div>
       </div>
       <% end %>
-
     <% end %>
+
 
   <% if current_user %>
     <form id="question_comment" method="post" action="<%= answer.question_id %>/answer/<%= answer.id %>/comment/new">
-
-       <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
-
-        <input type="submit" value="Post" class="comment_submit_button">
+      <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
+      <input type="submit" value="Post" class="comment_submit_button">
     </form>
-    <% end %>
+  <% end %>
     </div>
 
 
