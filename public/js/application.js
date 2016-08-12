@@ -3,9 +3,9 @@ $(document).ready(function() {
   // VOTING
   var up = $("#up");
   var down = $("#down");
-  var voteButton = $("a.q-vote");
+  var qButton = $("a.q-vote");
 
-  voteButton.click(function(event) {
+  qButton.click(function(event) {
     event.preventDefault();
     var $button = $(this);
 
