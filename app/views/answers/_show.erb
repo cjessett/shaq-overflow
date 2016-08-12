@@ -4,7 +4,7 @@
 
     <% if current_user %>
       <% if current_user == answer.question.user %>
-      <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Favorite</a>
+      <a class="favorite_button" href="/questions/<%= answer.question.id %>/answers/<%= answer.id %>/favorite">Mark as my Favorite</a>
       <% end %>
     <% end %>
 
@@ -41,11 +41,11 @@
     <% end %>
 
   <% if current_user %>
-    <form id="answer_comment" method="post" action="<%= answer.question_id %>/answer/<%= answer.id %>/comment/new">
+    <form id="question_comment" method="post" action="<%= answer.question_id %>/answer/<%= answer.id %>/comment/new">
 
        <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
 
-        <input type="submit" value="Post Comment" class="">
+        <input type="submit" value="Post" class="comment_submit_button">
     </form>
     <% end %>
     </div>
