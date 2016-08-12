@@ -20,7 +20,7 @@
     <% if current_user %>
       <%= erb :'answers/_buttons', :locals => { answer: answer } %>
     <% else %>
-      <%= erb :'answers/_no_user' %>
+      <%= erb :'answers/_no_user', :locals => { answer: answer } %>
     <% end %>
     </div>
 
