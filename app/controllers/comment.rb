@@ -13,11 +13,12 @@ end
 
 post '/questions/:question_id/comment/new' do
   question = Question.find(params[:question_id])
-  comment = Comment.new(content: params[:comment], commentable: question, user_id: session[:user_id])
-  if comment.save
-    redirect to "/questions/#{params[:question_id]}"
-  else
-    nooo
+  @comment = Comment.new(content: params[:comment], commentable: question, user: current_user)
+  if @comment.save
+    if request.xhr?
+      erb :'/comments/_question_comment', layout: false
+    else
+      redirect request.referrer
+    end
   end
-
 end

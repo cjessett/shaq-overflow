@@ -1,0 +1,9 @@
+<div class="question_comment">
+
+  <div id="comment_content"><%= @comment.content %></div>
+
+  <div id="question_comment_author">Author: <%= @comment.user.username.capitalize %> </div>
+
+  <div id="question_comment_author">Days ago: <%= ((Time.now - @comment.created_at) / 3600).to_i  %> </div>
+
+</div>

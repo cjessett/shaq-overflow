@@ -1,4 +1,5 @@
 $(document).ready(function() {
+// VOTING
   var up = $("div.question-cell > div.vote-cell > a.fa-thumbs-up.user");
   var down = $("div.question-cell > div.vote-cell > a.fa-thumbs-down.user");
 
@@ -47,6 +48,23 @@ $(document).ready(function() {
       down.addClass("active");
     }
   }
+
+// BEGIN QUESTION COMMENT FIELD
+  $("form#question_comment").submit(function(event) {
+    event.preventDefault();
+
+    var $form = $(this);
+    var data = $form.serialize();
+    var post_url = $form.attr('action');
+
+    var posting = $.post(post_url, data);
+    posting.done(function(data) {
+      $("div#all_question_comments").append(data);
+      $form.trigger("reset");
+    });
+  });
+
+// BEGIN ANSWER COMMENT FIELD
 
 
 });
