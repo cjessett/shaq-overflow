@@ -1,38 +1,25 @@
 $(document).ready(function() {
-// VOTING
-  var up = $("div.question-cell > div.vote-cell > a.fa-thumbs-up.user");
-  var down = $("div.question-cell > div.vote-cell > a.fa-thumbs-down.user");
 
-  up.click(function(event) {
+  // VOTING
+  var up = $("#up");
+  var down = $("#down");
+  var voteButton = $("a.q-vote");
+
+  voteButton.click(function(event) {
     event.preventDefault();
+    var $button = $(this);
 
-    var question_url = up.attr('href');
-    var posting = $.post(question_url);
+    var questionUrl = $button.attr('href');
+    var voteVal = $button.attr('val');
+    var voteData = { "vote": voteVal}
 
-    posting.done(function(data) {
-
-      data = JSON.parse(data);
-
-      var buttons = $("div.question-cell > div.vote-cell > a");
-      var counter = $("div.question-cell > div.vote-cell > .vote-count");
-
-      buttons.removeClass("active");
-      counter.text(data.total);
-      color_changer(data.value);
-    });
-  });
-
-  down.click(function(event) {
-    event.preventDefault();
-
-    var question_url = down.attr('href');
-    var posting = $.post(question_url);
+    var posting = $.post(questionUrl, voteData);
 
     posting.done(function(data) {
       data = JSON.parse(data);
 
-      var buttons = $("div.question-cell > div.vote-cell > a");
-      var counter = $("div.question-cell > div.vote-cell > .vote-count");
+      var buttons = $("a.q-vote");
+      var counter = $("#vote-count");
 
       buttons.removeClass("active");
       counter.text(data.total);
@@ -49,7 +36,9 @@ $(document).ready(function() {
     }
   }
 
-// BEGIN QUESTION COMMENT FIELD
+// ===============================================
+
+  // QUESTION COMMENT SCRIPT
   $("form#question_comment").submit(function(event) {
     event.preventDefault();
 
@@ -64,7 +53,7 @@ $(document).ready(function() {
     });
   });
 
-// BEGIN ANSWER COMMENT FIELD
+  // ANSWER COMMENT SCRIPT
 
 
 });

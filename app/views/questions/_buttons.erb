@@ -1,5 +1,5 @@
-<a class="fa fa-thumbs-up user <%= up_active?(@question) %>" href="/questions/<%= @question.id %>/votes/up"></a>
+<a id="up" val="1" class="fa fa-thumbs-up q-vote <%= up_active?(@question) %>" href="/questions/<%= @question.id %>/votes"></a>
 
 <span class="vote-count"><%= @question.points %></span>
 
-<a class="fa fa-thumbs-down user <%= down_active?(@question) %>" href="/questions/<%= @question.id %>/votes/down"></a>
+<a id="down" val="-1" class="fa fa-thumbs-down q-vote <%= down_active?(@question) %>" href="/questions/<%= @question.id %>/votes"></a>

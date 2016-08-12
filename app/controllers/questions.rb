@@ -36,38 +36,20 @@ post '/questions/:question_id/answers' do
 end
 
 
-post '/questions/:id/votes/up' do
+# vote routes for ajax
+post '/questions/:id/votes' do
   question = Question.find_by_id params[:id]
-  if current_user
-    val = 1
-    vote = question.votes.find_by(user: current_user)
-    if vote
-      vote.value == val ? vote.value = 0 : vote.value = val
-      vote.save
-    else
-      vote = Vote.create(value: val, user: current_user, votable: question)
-    end
-    total = question.points
-    value = vote.value
-    { value: value, total: total }.to_json
+  val = params[:vote].to_i
+  vote = Vote.find_by(user: current_user, votable: question)
+  if vote
+    vote.value = vote.value == val ? 0 : val
+    vote.save
+  else
+    vote = Vote.create(value: val, user: current_user, votable: question)
   end
-end
-
-post '/questions/:id/votes/down' do
-  question = Question.find_by_id params[:id]
-  if current_user
-    val = -1
-    vote = question.votes.find_by(user: current_user)
-    if vote
-      vote.value == val ? vote.value = 0 : vote.value = val
-      vote.save
-    else
-      vote = Vote.create(value: val, user: current_user, votable: question)
-    end
-    total = question.points
-    value = vote.value
-    { value: value, total: total }.to_json
-  end
+  total = question.points
+  value = vote.value
+  { value: value, total: total }.to_json
 end
 
 
