@@ -5,6 +5,9 @@
   border: 1px dotted black;
 }
 
+button:focus {
+  outline: none;
+}
 
 body {
   counter-reset:section;
@@ -231,7 +234,7 @@ a:focus {
 #question_comment textarea placeholder{
   outline: none;
  background-color: #D6C9D7;
- 
+
 }
 
 
@@ -242,7 +245,7 @@ a:focus {
   line-height: 1.5;
   font-size: .75em;
   background-color: #D6C9D7
-  
+
   }
 
 #answer_comment {
@@ -259,7 +262,7 @@ textarea{
 #comment_content textarea placeholder{
   outline: none;
  background-color: #D6C9D7;
- 
+
 }
 
 .comment_submit_button {

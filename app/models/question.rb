@@ -10,6 +10,6 @@ class Question < ActiveRecord::Base
   end
 
   def points
-    votes.sum(:value)
+    points = votes.sum(:value)
   end
 end

@@ -4,7 +4,8 @@ get '/questions' do
 end
 
 post '/questions' do
-  Question.create!(title: params[:title], content: params[:question], user_id: session[:user_id])
+  params['question']['user'] = current_user
+  Question.create(params[:question])
   redirect to '/questions'
 end
 
