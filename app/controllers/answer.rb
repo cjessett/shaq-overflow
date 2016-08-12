@@ -46,5 +46,5 @@ get '/questions/:question_id/answers/:answer_id/favorite' do
 
   @answer.favorite = true
   @answer.save
-  redirect "questions/#{@question.id}"
+  redirect "/questions/#{@question.id}"
 end
