@@ -3,9 +3,9 @@ $(document).ready(function() {
   // VOTING
   var up = $("#up");
   var down = $("#down");
-  var qButton = $("a.q-vote");
+  var voteButton = $("a.q-vote");
 
-  qButton.click(function(event) {
+  voteButton.click(function(event) {
     event.preventDefault();
     var $button = $(this);
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
       data = JSON.parse(data);
 
       var buttons = $("a.q-vote");
-      var counter = $("#vote-count");
+      var counter = $(".vote-count");
 
       buttons.removeClass("active");
       counter.text(data.total);
