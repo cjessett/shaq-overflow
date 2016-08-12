@@ -9,7 +9,8 @@
     <%= @question.content %>
   </div>
 
-  <% if @question.comments.count > 0 %>
+  <% if @question.comments %>
+    <div id="all_question_comments">
 
     <% @question.comments.each do |comment| %>
     <div class="question_comment">
@@ -18,15 +19,15 @@
       <div id="question_comment_author">Days ago: <%= ((Time.now - comment.created_at) / 3600).to_i  %> </div>
     </div>
     <% end %>
+
+    </div>
   <% end %>
 
   <% if current_user  %>
 
-    <form id="question_comment" method="post" action="<%= @question.id %>/comment/new">
-
-       <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
-
-        <input type="submit" value="Post Comment" class="">
+    <form id="question_comment" method="post" action="/questions/<%= @question.id %>/comment/new">
+      <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
+      <input type="submit" value="Post Comment"/>
     </form>
 
  <% end %>
