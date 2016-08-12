@@ -33,7 +33,7 @@
 
        <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
 
-        <input type="submit" value="Post Comment" class="">
+        <input type="submit" value="Post" class="comment_submit_button">
     </form>
 
  <% end %>
@@ -54,9 +54,10 @@
 
 <!-- new answer form -->
 <div class="new-answer">
+<h3>Submit a new answer</h3>
   <form action ="/questions/<%= @question.id%>/answers" method="post" id="answer-form">
     <textarea rows="4" cols="50" name="answer" form="answer-form" required></textarea>
-    <input type="submit" value="Post Your Answer" class="">
+    <input type="submit" value="Post" class="comment_submit_button">
   </form>
 </div>
 
