@@ -275,8 +275,11 @@ textarea{
   color: #9999ff;
 }
 
-#author {
-  margin-left: 100px;
+.author {
+  position: relative;
+  left: 75%;
+  padding-bottom: 25px;
+  padding-top: 15px;
 }
 
 *::-webkit-input-placeholder {
