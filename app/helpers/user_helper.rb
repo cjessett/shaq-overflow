@@ -15,23 +15,6 @@ helpers do
     end
   end
 
-  def answer_vote_status(answer)
-    @answer = answer
-    if current_user
-      val = current_user.votes.find_or_initialize_by(votable: answer).value
-      case val
-      when 1
-        erb :'answers/_up'
-      when -1
-        erb :'answers/_down'
-      else
-        erb :'answers/_basic'
-      end
-    else
-      erb :'answers/_no_user'
-    end
-  end
-
   def appropriate_user(id)
     if current_user.id == id.to_i
       "you have"
