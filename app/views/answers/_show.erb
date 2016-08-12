@@ -34,7 +34,7 @@
       <div class="answer_comment">
         <div id="comment_content"><%= comment.content %></div>
         <div id="answer_comment_author">Author: <%= comment.user.username.capitalize %> </div>
-        <div id="answer_comment_author">Days ago: <%= ((Time.now - comment.created_at) / 3600).to_i  %> </div>
+        <div id="answer_comment_author">Hours ago: <%= ((Time.now - comment.created_at) / 60/60).to_i  %> </div>
       </div>
       <% end %>
 
