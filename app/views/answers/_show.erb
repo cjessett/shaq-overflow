@@ -44,7 +44,7 @@
 
 
   <% if current_user %>
-    <form id="question_comment" method="post" action="<%= answer.question_id %>/answer/<%= answer.id %>/comment/new">
+    <form id="answer_comment" method="post" action="<%= answer.question_id %>/answer/<%= answer.id %>/comment/new">
       <textarea rows="1" cols="50" name="comment" placeholder="Comment" required></textarea>
       <input type="submit" value="Post" class="comment_submit_button">
     </form>
