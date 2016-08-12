@@ -3,18 +3,18 @@ get '/questions' do
   erb :index
 end
 
-post '/questions' do
-  params['question']['user'] = current_user
-  Question.create(params[:question])
-  redirect to '/questions'
-end
-
 get '/questions/new' do
   if current_user
     erb :'questions/new'
   else
     redirect '/login'
   end
+end
+
+post '/questions' do
+  params['question']['user'] = current_user
+  Question.create(params[:question])
+  redirect to '/questions'
 end
 
 get '/questions/:id' do
@@ -24,19 +24,7 @@ get '/questions/:id' do
 end
 
 
-# submit answer
-post '/questions/:question_id/answers' do
-  if !current_user
-    redirect '/login'
-  end
-  q_id = params[:question_id]
-  Answer.create(content: params[:answer], user_id: session[:user_id], question_id: q_id )
-
-  redirect "/questions/#{q_id}"
-end
-
-
-# vote routes for ajax
+# vote route for ajax
 post '/questions/:id/votes' do
   question = Question.find_by_id params[:id]
   val = params[:vote].to_i

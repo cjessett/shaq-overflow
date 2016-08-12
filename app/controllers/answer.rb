@@ -1,3 +1,13 @@
+# submit answer
+post '/questions/:question_id/answers' do
+  if !current_user
+    redirect '/login'
+  end
+  q_id = params[:question_id]
+  Answer.create(content: params[:answer], user: current_user, question_id: q_id )
+  redirect "/questions/#{q_id}"
+end
+
 # vote handling
 get "/answers/:id/votes/up" do
   answer = Answer.find_by_id params[:id]
