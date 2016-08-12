@@ -5,12 +5,11 @@ class Question < ActiveRecord::Base
   has_many :answers
   belongs_to :user
 
+  def author
+    user.username.capitalize
+  end
 
   def points
     points = votes.sum(:value)
-  end
-
-  def username
-    user.username
   end
 end
