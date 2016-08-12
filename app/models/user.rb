@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
     self.password == password
   end
 
+  def name 
+    username.capitalize
+  end
+
 end

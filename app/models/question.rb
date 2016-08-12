@@ -5,8 +5,8 @@ class Question < ActiveRecord::Base
   has_many :answers
   belongs_to :user
 
-  def username
-    user.username
+  def author
+    user.username.capitalize
   end
 
   def points

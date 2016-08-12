@@ -1,7 +1,6 @@
-
-<h1>Welcome <%= @user.username.capitalize %></h1>
+<h1><%= profile_header(params[:id]) %></h1>
   <% if @questions %>
-  <h3> Questions you have asked: </h3>
+  <h3> Questions <%= appropriate_user(params[:id]) %> asked: </h3>
 
       <% @questions.each do |question| %>
 
@@ -25,18 +24,18 @@
        </article>
       <% end %>
   <% else %>
-      <h2>You have not asked any questions yet...</h2>
+      <h2><%= appropriate_user(params[:id]) %> not asked any questions yet...</h2>
   <% end %>
 
 <% if @answers %>
-  <h3> Questions you have answered: </h3>
+  <h3> Questions <%= appropriate_user(params[:id]) %> answered: </h3>
       <% @answers.each do |answer| %>
         <article id="<%= answer.id %>">
         <div class="question-info inline">
         <div class="summary inline">
           <h3><a href="/questions/<%= answer.question.id %>"><%= answer.question.title %></a></h3>
           <h5>Asked by: <a href="/users/<%= answer.question.user.id %>"><%= answer.question.user.username %></a></h5>
-          <h6>Your response:</h6>
+          <h6><%= user_pronoun(params[:id]) %> response:</h6>
           <p><%= answer.content %></p>
         </div>
         </div>
