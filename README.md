@@ -1,5 +1,12 @@
 # shaq-overflow
 
+Stack Overflow clone built in a couple of days at DBC, featuring:
+- User authentication
+- Questions, answers, and comments about Shaq
+- Asynchronous voting with AJAX
+- Answer favoriting
+- User profiles
+
 ## Members
 - Sean Witt
 - Sarah Dickerson
